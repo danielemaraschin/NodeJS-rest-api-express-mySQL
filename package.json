@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/danielemaraschin/NodeJS-rest-api-express-mySQL/issues"
   },
-  "homepage": "https://github.com/danielemaraschin/NodeJS-rest-api-express-mySQL#readme"
+  "homepage": "https://github.com/danielemaraschin/NodeJS-rest-api-express-mySQL#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
