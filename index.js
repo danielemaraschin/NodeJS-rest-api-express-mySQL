@@ -3,7 +3,7 @@ const conexao = require('./infraestrutura/conexao')
 const Tabelas = require('./infraestrutura/tabelas')
 
 conexao.connect(erro => {
-    if(erro) {
+    if (erro) {
         console.log(erro)
     } else {
         console.log('conectado com sucesso')
