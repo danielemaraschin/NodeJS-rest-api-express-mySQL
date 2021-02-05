@@ -1,4 +1,4 @@
-const conexao = require('models/infraestrutura/conexao')
+const conexao = require('../infraestrutura/conexao')
 
 
 class Atendimento {
@@ -14,3 +14,4 @@ class Atendimento {
         })
     }
 }
+module.export = new Atendimento
