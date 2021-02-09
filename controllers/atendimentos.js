@@ -7,7 +7,6 @@ module.exports = app => {
         //console.log(req.body) //req.body = onde está recebendo os dados que estamos enviando (conteudo do body é o atendimento)
         const atendimento = req.body
 
-        Atendimento.adiciona(atendimento)
-        res.send ('POST ATENDIMENTO')
+        Atendimento.adiciona(atendimento, res)
     })
 }
