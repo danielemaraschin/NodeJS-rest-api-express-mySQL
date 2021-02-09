@@ -4,7 +4,7 @@ Para salvar os dados na nossa base de dados, usamos a query que a biblioteca do 
 Agora que já cadastramos o atendimento, queremos cadastrar um novo serviço dentro da tabela Servicos no nosso sistema.
 
 Considerando que este serviço deve possuir id (que será incrementado automaticamente), nome e preço, como seria esse código de inserção?
-*/
+
 
 
 
@@ -19,6 +19,7 @@ conexao.query(`INSERT INTO Servicos(nome, preco) VALUES('${nome}', '${preco}')`,
     }
    }
 
+   */
 
 
 
