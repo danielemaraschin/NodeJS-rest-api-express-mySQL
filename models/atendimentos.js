@@ -11,9 +11,9 @@ class Atendimento {
 
         conexao.query(sql, atendimentoDatado, (erro, resultados) => {
             if(erro) {
-                res.json(erro)
+                res.status(400).json(erro)
             } else {
-                res.json(resultados)
+                res.status(201).json(resultados)
             }
         })
     }
