@@ -6,7 +6,10 @@ class Atendimento {
     adiciona(atendimento, res) {
         const dataCriacao = moment().format('YYYY-MM-DD HH:MM:SS')
         const data = moment(atendimento.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+
+
         const dataEhValida = moment(data).isSameOrAfter(dataCriacao)
+        const clienteEhValido = atendimento.cliente.length >= 5
 
         const atendimentoDatado = {...atendimento, dataCriacao, data}
 
