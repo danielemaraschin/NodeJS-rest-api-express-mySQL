@@ -28,6 +28,9 @@ class Atendimento {
             }
         ]
 
+        // na validacoes vamos filtrar e pegar só oq tiver errado
+        const erros = validacoes.filter(campo => !campo.valido)
+
         const atendimentoDatado = {...atendimento, dataCriacao, data}
 
         const sql = 'INSERT INTO Atendimentos SET ?'
