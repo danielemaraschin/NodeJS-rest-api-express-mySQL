@@ -11,6 +11,18 @@ class Atendimento {
         const dataEhValida = moment(data).isSameOrAfter(dataCriacao)
         const clienteEhValido = atendimento.cliente.length >= 5
 
+//criar um array com objetos das validações
+
+        const validacoes = [
+            
+            {
+                nome: 'data',
+                valido: dataEhValida,
+                mensagem: 'Data deve ser maior ou igual à data atual.'
+
+            }
+        ]
+
         const atendimentoDatado = {...atendimento, dataCriacao, data}
 
         const sql = 'INSERT INTO Atendimentos SET ?'
