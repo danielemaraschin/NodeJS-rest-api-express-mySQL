@@ -19,7 +19,12 @@ class Atendimento {
                 nome: 'data',
                 valido: dataEhValida,
                 mensagem: 'Data deve ser maior ou igual à data atual.'
+            },
 
+            {
+                nome: 'cliente',
+                valido: clienteEhValido,
+                mensagem: 'Cliente deve ter pelo menos cinco caracteres.'
             }
         ]
 
