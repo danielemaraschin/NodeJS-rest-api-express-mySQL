@@ -9,9 +9,12 @@ class Atendimento {
 
 
         const dataEhValida = moment(data).isSameOrAfter(dataCriacao)
-        const clienteEhValido = atendimento.cliente.length >= 5
+        //console.log('atendimento.cliente', atendimento.cliente);
+        const clienteEhValido = atendimento.cliente.length >=5
 
         //criar um array com objetos das validações
+
+        //console.log('atendimento.cliente.length', atendimento.cliente.length);
 
         const validacoes = [
 
@@ -30,10 +33,11 @@ class Atendimento {
 
         // na validacoes vamos filtrar e pegar só oq tiver errado
         const erros = validacoes.filter(campo => !campo.valido)
+        
         const existemErros = erros.length
 
         if (existemErros) {           // faz a validacao primeiro, pq se tiver erros já avisa antes pro usuario sem precisar chamar o db
-            res.status(400).json
+            res.status(400).json(existemErros)
         } else {      // se não existem erros faz a query e a conexão com o banco de dados
 
             const atendimentoDatado = { ...atendimento, dataCriacao, data }
@@ -48,7 +52,6 @@ class Atendimento {
                 }
             })
         }
-
     }
 }
 
