@@ -11,14 +11,14 @@ class Atendimento {
         const dataEhValida = moment(data).isSameOrAfter(dataCriacao)
         const clienteEhValido = atendimento.cliente.length >= 5
 
-//criar um array com objetos das validações
+        //criar um array com objetos das validações
 
         const validacoes = [
-            
+
             {
-                nome: 'data',
-                valido: dataEhValida,
-                mensagem: 'Data deve ser maior ou igual à data atual.'
+                nome: 'data',                                               //nome do campo
+                valido: dataEhValida,                                        //se for válido
+                mensagem: 'Data deve ser maior ou igual à data atual.'      //se não for válido
             },
 
             {
@@ -31,18 +31,24 @@ class Atendimento {
         // na validacoes vamos filtrar e pegar só oq tiver errado
         const erros = validacoes.filter(campo => !campo.valido)
         const existemErros = erros.length
-          
-        const atendimentoDatado = {...atendimento, dataCriacao, data}
 
-        const sql = 'INSERT INTO Atendimentos SET ?'
+        if (existemErros) {           // faz a validacao primeiro, pq se tiver erros já avisa antes pro usuario sem precisar chamar o db
+            res.status(400).json
+        } else {      // se não existem erros faz a query e a conexão com o banco de dados
 
-        conexao.query(sql, atendimentoDatado, (erro, resultados) => {
-            if(erro) {
-                res.status(400).json(erro)
-            } else {
-                res.status(201).json(resultados)
-            }
-        })
+            const atendimentoDatado = { ...atendimento, dataCriacao, data }
+
+            const sql = 'INSERT INTO Atendimentos SET ?'
+
+            conexao.query(sql, atendimentoDatado, (erro, resultados) => {
+                if (erro) {
+                    res.status(400).json(erros)
+                } else {
+                    res.status(201).json(resultados)
+                }
+            })
+        }
+
     }
 }
 
