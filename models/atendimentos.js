@@ -9,12 +9,11 @@ class Atendimento {
 
 
         const dataEhValida = moment(data).isSameOrAfter(dataCriacao)
-        //console.log('atendimento.cliente', atendimento.cliente);
+//console.log('atendimento.cliente', atendimento.cliente);
         const clienteEhValido = atendimento.cliente.length >=5
 
-        //criar um array com objetos das validações
-
-        //console.log('atendimento.cliente.length', atendimento.cliente.length);
+//criar um array com objetos das validações
+//console.log('atendimento.cliente.length', atendimento.cliente.length);
 
         const validacoes = [
 
@@ -61,14 +60,12 @@ class Atendimento {
            if(erro) {
                res.status(400).json(erro)
            }else{
-               res.status(200).(resultados)
+               res.status(200).json(resultados)
            }
            
        })
     }
 }
-
-
 
 
 module.exports = new Atendimento
