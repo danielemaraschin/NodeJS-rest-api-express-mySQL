@@ -1,4 +1,5 @@
 const moment = require('moment')
+const atendimentos = require('../controllers/atendimentos')
 
 const conexao = require('../infraestrutura/conexao')
 
@@ -70,15 +71,16 @@ class Atendimento {
         const sql = `SELECT * FROM Atendimentos where id=${id}`
 
         conexao.query(sql, (erro, resultados) => {
+            const atendimento = resultados[0]
+
             if(erro){
                 res.status(400).json(erro)
             }else{
-                res.status(200).json(resultados)
+                res.status(200).json(atendimento)
             }
 
         })
     }
 }
-
 
 module.exports = new Atendimento
