@@ -1,3 +1,4 @@
+const atendimentos = require('../models/atendimentos')
 const Atendimento = require('../models/atendimentos')
 
 module.exports = app => {
@@ -7,8 +8,10 @@ module.exports = app => {
 
     app.get('/atendimentos/:id', (req, res) => {     //dps dos : é o parametro (id eh o nome do parametro QUE IREMOS COLOCAR DPS)
 
-        console.log(req.params)
-        res.send('OK')
+        const id = parseInt(req.params.id)
+        
+        Atendimento.buscaPorId(id, res)
+        
     })  
         
     
