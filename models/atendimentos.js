@@ -81,6 +81,22 @@ class Atendimento {
 
         })
     }
+
+    altera(id, valores, res) {
+
+        if(valores.data){ //se existe valores. data (Se estiver fazendo update da data, converte no formato desejado da funcao adiciona)
+            valores.data = moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+        }
+        const sql = 'UPDATE Atendimentos SET ? WHERE id=?'
+
+        conexao.query(sql, [valores, id], (erro, resultados) => {
+            if(erro) {
+                res.status(400).json(erro)
+            }else{
+                res.status(200).json(resultados)
+            }   
+        })
+    }
 }
 
 module.exports = new Atendimento
