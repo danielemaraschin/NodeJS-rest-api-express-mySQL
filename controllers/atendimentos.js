@@ -6,9 +6,9 @@ module.exports = app => {
         Atendimento.lista(res)
     })
 
-    app.get('/atendimentos/:id', (req, res) => {     //dps dos : é o parametro (id eh o nome do parametro QUE IREMOS COLOCAR DPS)
+    app.get('/atendimentos/:id', (req, res) => {     //dps dos : é o parametro escolhido (id eh o nome do parametro q escolhemos pq é unico em cada atendimento)
 
-        const id = parseInt(req.params.id)
+        const id = parseInt(req.params.id)  ///converte id aqui de string pra numero
         
         Atendimento.buscaPorId(id, res)
         
@@ -28,5 +28,11 @@ module.exports = app => {
         const valores = req.body
 
         Atendimento.altera(id, valores, res)
+    })
+
+    app.delete('/atendimento/:id', (req, res) => {
+        const id = parseInt(req.params.id)
+
+        Atendimento.deleta(id, res)
     })
 }
