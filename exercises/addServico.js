@@ -1,5 +1,5 @@
-/*
-Para salvar os dados na nossa base de dados, usamos a query que a biblioteca do mysql nos disponibiliza.
+
+/*Para salvar os dados na nossa base de dados, usamos a query que a biblioteca do mysql nos disponibiliza.
 
 Agora que já cadastramos o atendimento, queremos cadastrar um novo serviço dentro da tabela Servicos no nosso sistema.
 
@@ -19,9 +19,7 @@ conexao.query(`INSERT INTO Servicos(nome, preco) VALUES('${nome}', '${preco}')`,
     }
    }
 
-   */
+   
 
 
-
-
-
+/*
